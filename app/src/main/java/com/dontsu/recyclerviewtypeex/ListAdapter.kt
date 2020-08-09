@@ -22,6 +22,8 @@ class ListAdapter(private val array: ArrayList<Int>) : RecyclerView.Adapter<Recy
     }
 
     //뷰 홀더객체 생성, 이 뷰 홀더객체는 RecyclerView.Adapter의 어댑터가 관리한다. 또한 어댑터가 뷰홀더를 데이터와 바인딩한다.
+    //리싸이클러뷰는 뷰가 캐쉬되는 방법으로 뷰홀더를 사용하는 것 이다.
+    //뷰홀더가 뷰를 담고 있는 객체이다.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         Log.d("어댑터" , "onCreateViewHolder() $parent , ${parent.context}")
         val inflater = LayoutInflater.from(parent.context) //레이아읏 인플레이터가 context를 사용하는 이유는?? 반드시 액티비티의 xml에 부착되어야하기 때문?

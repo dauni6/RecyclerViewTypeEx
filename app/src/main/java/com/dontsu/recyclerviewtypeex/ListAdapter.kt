@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 //어댑터가 뷰 홀더를 만든다.
-
 class ListAdapter(private val array: ArrayList<Int>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -22,10 +21,10 @@ class ListAdapter(private val array: ArrayList<Int>) : RecyclerView.Adapter<Recy
         return array[position]
     }
 
-    //뷰 홀더 생성
+    //뷰 홀더객체 생성, 이 뷰 홀더객체는 RecyclerView.Adapter의 어댑터가 관리한다. 또한 어댑터가 뷰홀더를 데이터와 바인딩한다.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         Log.d("어댑터" , "onCreateViewHolder() $parent , ${parent.context}")
-        val inflater = LayoutInflater.from(parent.context)
+        val inflater = LayoutInflater.from(parent.context) //레이아읏 인플레이터가 context를 사용하는 이유는?? 반드시 액티비티의 xml에 부착되어야하기 때문?
         return when (viewType) {
             0 -> {
                 val view = inflater.inflate(R.layout.view_item01, parent, false)
@@ -38,7 +37,9 @@ class ListAdapter(private val array: ArrayList<Int>) : RecyclerView.Adapter<Recy
             }
         }
     }
-
+    
+    //뷰에 데이터를 넣어줌, 여기가 어댑터가 뷰홀더를 데이터와 바인딩하는 부분. 그리고 뷰 홀더를 특정 위치에 할당한다.
+    //뷰 홀더의 위치를 사용하여 뷰의 위치를 결정한다.
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is InfoViewHolder -> {
@@ -51,7 +52,6 @@ class ListAdapter(private val array: ArrayList<Int>) : RecyclerView.Adapter<Recy
             }
         }
     }
-
 }
 
 //뷰는 뷰 홀더 객체에 의해 표현된다.

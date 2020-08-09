@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("어댑터", "메인에서 ${recyclerView.context}")
             Log.d("어댑터", "메인에서 ${textView.context}")
             Log.d("어댑터", "메인에서 $recyclerView")
-            layoutManager = LinearLayoutManager(context) //뷰의 배치 방향을 담당
+            layoutManager = LinearLayoutManager(context) //뷰의 배치 방향을 담당, 레이아웃매너지를 통해 내가 만든 뷰가 채워짐
             adapter = listAdapter
         }
 
